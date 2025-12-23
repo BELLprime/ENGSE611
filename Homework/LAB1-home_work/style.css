@@ -52,7 +52,12 @@ button:hover {
 }
 /* Class Selector */
 .bg_white {
-    background-color: #dfdad7;
+    width: 90%; 
+    border: 2px solid #ff4155; 
+    padding: 15px;
+    word-wrap: break-word;   
+    background-color: #fff0f0; 
+    margin: auto;   
 }
 .highlight {
     width: 80px;
@@ -70,17 +75,15 @@ button:hover {
     background-image: url('https://wallup.net/wp-content/uploads/2017/03/29/487843-Pewdiepie-YouTube-748x421.png');
     background-size: cover;       
     background-repeat: no-repeat; 
-    background-position: center ;
-    background-size: cover;  
     border :2px solid #333;
     margin: 2%;
-    width: auto;
+    width: 90%;
     height: auto;
-    }
+}
 .shadow_table {
     box-shadow: 0 0 20px rgba(255, 65, 85, 0.5); 
 }
-.article {
+.article-font{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-style: italic;
     color: rgb(91, 91, 95);
