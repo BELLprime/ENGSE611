@@ -2,7 +2,7 @@ function checkGrade () {
     console.clear();
     const output = [] ;
     
-    let score = 75; //manual
+    let score = 79; //manual
 
     let grade = "" ;
     if (score >= 80) {
@@ -24,7 +24,7 @@ function checkGrade () {
     output.push("ผลสอบ: " + result);
     console.log("ผลสอบ:", result);
 
-    document.getElementById("output").textContent = output.join("\n");
+    document.getElementById("output").innerHTML = output.join("<br>");
 }
 
 document.getElementById("btn").addEventListener("click", checkGrade);

@@ -52,7 +52,7 @@ function checkGrade () {
     output.push("คำอธิบาย: " + description);
     console.log("คำอธิบาย:", description);
 
-    document.getElementById("outputBox").textContent = output.join("\n");
+    document.getElementById("outputBox").innerHTML = output.join("<br>");
 }
 
 document.getElementById("btn").addEventListener("click", checkGrade);
