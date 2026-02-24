@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Test Demo</title>
+</head>
+<body>
+
+    <h2>ทดสอบประสิทธิภาพ (ดูเวลาใน Developer Console / F12)</h2>
+    
+    <button onclick="testLoop()">ทดสอบความเร็วของ Loop</button>
+    <button onclick="runTest()">รันทดสอบ DOM ทั้งสองแบบ</button>
+
+    <div class="container">
+        <div>
+            <h3>Normal DOM (ช้ากว่า)</h3>
+            <ul id="list-normal" ></ul>
+        </div>
+        <div>
+            <h3>Fragment DOM (เร็วกว่า)</h3>
+            <ul id="list-fragment" ></ul>
+        </div>
+    </div>
+
+    <script>
+        // ============================
+        // 1) Performance Test: console.time
+        // ============================
+        function testLoop() {
+            console.time("Loop 1M");
+            let sum = 0;
+            for (let i = 0; i < 1000000; i++) {
+                sum += i;
+            }
+            console.timeEnd("Loop 1M");
+            alert("ผลลัพธ์ดูได้ใน Developer Console");
+        }
+
+        // ============================
+        // 2) DocumentFragment Test
+        // ============================
+        function runTest() {
+            const listNormal = document.getElementById("list-normal");
+            const listFragment = document.getElementById("list-fragment");
+
+            // เคลียร์ค่าเดิมก่อนเริ่มทดสอบใหม่
+            listNormal.innerHTML = "";
+            listFragment.innerHTML = "";
+
+            // Normal DOM (ช้า)
+            console.time("Normal DOM");
+            for (let i = 0; i < 1000; i++) {
+                const li = document.createElement("li");
+                li.textContent = `Item ${i}`;
+                listNormal.appendChild(li); // ใส่ลง DOM จริงทุกรอบวงลูป
+            }
+            console.timeEnd("Normal DOM");
+
+            // Fragment DOM (เร็ว)
+            const fragment = document.createDocumentFragment();
+            console.time("Fragment DOM");
+            for (let i = 0; i < 1000; i++) {
+                const li = document.createElement("li");
+                li.textContent = `Item ${i}`;
+                fragment.appendChild(li); // ใส่ลง Memory ก่อน
+            }
+            listFragment.appendChild(fragment); // ใส่ลง DOM จริงแค่ครั้งเดียวตอนจบ
+            console.timeEnd("Fragment DOM");
+
+            alert("เสร็จสิ้น! ดูเวลาที่วัดได้ใน Developer Console");
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>ทดสอบการเขียนฟังก์ชัน 4 แบบ</h2>
+    <button onclick="runDemo()">กดเพื่อรันโค้ด (Run Demo)</button>
+    <pre id="outputBox">รอการกดปุ่ม...</pre>
+
+    <script>
+        function runDemo() {
+            console.clear () ;
+            const output = [];
+        
+            // 1) ฟังก์ชันแบบปกติ
+            function sayHi() {
+                output.push("Hi");
+                console.log("Hi");
+            }
+            sayHi();
+
+            // 2) ฟังก์ชันแบบ Arrow
+            const sayHiArrow = () => {
+                output.push("Hi from Arrow");
+                console.log("Hi from Arrow");
+            };
+            sayHiArrow();
+
+            // 3) ฟังก์ชันแบบส่งค่าเข้า
+            function greet(name) {
+                output.push("Hello " + name);
+                console.log("Hello " + name);
+            }
+            greet("Alex");
+
+            // 4) ฟังก์ชันแบบ Return
+            function add(a, b) {
+                return a + b;
+            }
+            let sum = add(5, 7);
+            output.push("ผลรวม 5 + 7 = " + sum);
+            console.log("ผลรวม:", sum);
+        
+            document.getElementById("outputBox").textContent = output.join("\n");
+        }
+    </script>
+</body>
+</html>
