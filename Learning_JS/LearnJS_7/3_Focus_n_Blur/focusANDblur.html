@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="username" placeholder="Username (ต้องมี 3+ char)">
+    </div>
+
+    <script>
+        let username = document.getElementById("username");
+        //focus 
+        username.addEventListener('focus' , function() {
+            this.style.backgroundColor = '#e3f2fd';
+        });
+        // blur if ออกจากช่อง
+        username.addEventListener('blur' , (e) => {
+            e.target.style.backgroundColor = '' ;
+            // valdiation 
+            if (this.value.length < 3) {
+                this.style.borderColor = 'red' ;
+            } else this.style.borderColor = 'green' ;
+        });
+    </script>
+    
+</body>
+</html>

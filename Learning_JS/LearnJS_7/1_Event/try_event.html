@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="AL"></p>
+    <button id="myButton">click me</button>
+
+    <script> 
+        // 1. Find the button in the document
+        const btn = document.getElementById("myButton");
+
+        // 2. Tell the button to listen for a click
+        btn.addEventListener("click", function() {
+            alert("alert BEKK");
+        });
+        /* use arrow 
+        btn.addEventListener("click", () => {
+            alert("alert BEKK");
+        });
+        */
+    </script>
+</body>
+</html>
